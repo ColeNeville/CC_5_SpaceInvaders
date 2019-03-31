@@ -14,6 +14,12 @@ function setup() {
 	}
 }
 
+function keyReleased() {
+	if (keyCode === LEFT_ARROW || keyCode === RIGHT_ARROW) {
+		ship.setDir(0);
+	}
+}
+
 function keyPressed() {
 	if (key === ' ') {
 		var drop = new Drop(ship.x, height);
@@ -21,9 +27,9 @@ function keyPressed() {
 	}
 
 	if (keyCode === LEFT_ARROW) {
-		ship.move(-1);
+		ship.setDir(-1);
 	} else if (keyCode === RIGHT_ARROW) {
-		ship.move(1);
+		ship.setDir(1);
 	}
 }
 
@@ -44,6 +50,8 @@ function draw() {
 			drops[i].rem();
 		}
 	}
+
+	ship.move();
 	ship.show();
 
 	var right = false;

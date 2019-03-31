@@ -1,8 +1,13 @@
 function Ship() {
 	this.x = width / 2;
+	this.xdir = 0;
 
 	this.move = function (dir) {
-		this.x += dir * 5;
+		this.x += this.xdir * 3;
+	}
+
+	this.setDir = function (dir) {
+		this.xdir = dir;
 	}
 
 	this.show = function () {
